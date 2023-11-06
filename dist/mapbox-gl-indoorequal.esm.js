@@ -1,5 +1,8 @@
 import debounce from 'debounce';
 import arrayEqual from 'array-equal';
+import buffer from '@turf/buffer';
+import simplify from '@turf/simplify';
+import union from '@turf/union';
 
 function findAllLevels(features) {
   const levels = [];
@@ -740,9 +743,11 @@ class IndoorEqual {
     this.source.addLayers();
     this._updateFilters();
     this._updateLevelsDebounce = debounce(this._updateLevels.bind(this), 1000);
+    this._updateFeatureCollisionFilterDebounce = debounce(this._updateFeatureCollisionFilter.bind(this), 1000);
 
     this.map.on('load', this._updateLevelsDebounce);
     this.map.on('data', this._updateLevelsDebounce);
+    this.map.on('data', this._updateFeatureCollisionFilterDebounce);
     this.map.on('move', this._updateLevelsDebounce);
     this.map.on('remove', () => {
       this.remove();
@@ -755,8 +760,32 @@ class IndoorEqual {
     .forEach((layer) => {
       this.map.setFilter(layer.id, [ ...layer.filter || ['all'], ['==', 'level', this.level]]);
     });
+
+    this._updateFeatureCollisionFilter();
   }
 
+  _updateFeatureCollisionFilter() {
+    const areas = this.map.querySourceFeatures(this.source.sourceId, {sourceLayer: "area"})
+        .filter(mapFeature => { return mapFeature.properties.level === this.level });
+
+    if (areas.length <= 0) {
+      return
+    }
+    
+    const inflatedFeatures = areas.map(mapFeature => {
+      return simplify(buffer(mapFeature.geometry, 0.02), {tolerance: 0.0001})
+    } );
+    
+    const inflatedFeatureCollection = {
+      'type': 'FeatureCollection',
+      'features': inflatedFeatures
+    };
+
+    const unionOfFeatures = union(inflatedFeatureCollection);
+    
+    this.map.setFilter('poi', ['!', [ 'within', unionOfFeatures ]]);
+  }
+  
   _refreshAfterLevelsUpdate() {
     if (!this.levels.includes(this.level)) {
       this.setLevel('0');

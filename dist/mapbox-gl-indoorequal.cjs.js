@@ -2,11 +2,9 @@
 
 var debounce = require('debounce');
 var arrayEqual = require('array-equal');
-
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-var debounce__default = /*#__PURE__*/_interopDefaultLegacy(debounce);
-var arrayEqual__default = /*#__PURE__*/_interopDefaultLegacy(arrayEqual);
+var buffer = require('@turf/buffer');
+var simplify = require('@turf/simplify');
+var union = require('@turf/union');
 
 function findAllLevels(features) {
   const levels = [];
@@ -746,10 +744,12 @@ class IndoorEqual {
     this.source.addSource();
     this.source.addLayers();
     this._updateFilters();
-    this._updateLevelsDebounce = debounce__default["default"](this._updateLevels.bind(this), 1000);
+    this._updateLevelsDebounce = debounce(this._updateLevels.bind(this), 1000);
+    this._updateFeatureCollisionFilterDebounce = debounce(this._updateFeatureCollisionFilter.bind(this), 1000);
 
     this.map.on('load', this._updateLevelsDebounce);
     this.map.on('data', this._updateLevelsDebounce);
+    this.map.on('data', this._updateFeatureCollisionFilterDebounce);
     this.map.on('move', this._updateLevelsDebounce);
     this.map.on('remove', () => {
       this.remove();
@@ -762,8 +762,32 @@ class IndoorEqual {
     .forEach((layer) => {
       this.map.setFilter(layer.id, [ ...layer.filter || ['all'], ['==', 'level', this.level]]);
     });
+
+    this._updateFeatureCollisionFilter();
   }
 
+  _updateFeatureCollisionFilter() {
+    const areas = this.map.querySourceFeatures(this.source.sourceId, {sourceLayer: "area"})
+        .filter(mapFeature => { return mapFeature.properties.level === this.level });
+
+    if (areas.length <= 0) {
+      return
+    }
+    
+    const inflatedFeatures = areas.map(mapFeature => {
+      return simplify(buffer(mapFeature.geometry, 0.02), {tolerance: 0.0001})
+    } );
+    
+    const inflatedFeatureCollection = {
+      'type': 'FeatureCollection',
+      'features': inflatedFeatures
+    };
+
+    const unionOfFeatures = union(inflatedFeatureCollection);
+    
+    this.map.setFilter('poi', ['!', [ 'within', unionOfFeatures ]]);
+  }
+  
   _refreshAfterLevelsUpdate() {
     if (!this.levels.includes(this.level)) {
       this.setLevel('0');
@@ -774,7 +798,7 @@ class IndoorEqual {
     if (this.map.isSourceLoaded(this.source.sourceId)) {
       const features = this.map.querySourceFeatures(this.source.sourceId, { sourceLayer: 'area' });
       const levels = findAllLevels(features);
-      if (!arrayEqual__default["default"](levels, this.levels)) {
+      if (!arrayEqual(levels, this.levels)) {
         this.levels = levels;
         this._emitLevelsChange();
         this._refreshAfterLevelsUpdate();

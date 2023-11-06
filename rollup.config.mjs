@@ -24,7 +24,7 @@ export default [
 
   {
     input,
-    external: ['debounce', 'array-equal'],
+    external: ['debounce', 'array-equal', '@turf/buffer', '@turf/simplify', '@turf/union'],
     output: [
       { file: pkg.main, format: 'cjs', exports: 'default' },
       { file: pkg.module, format: 'es' }

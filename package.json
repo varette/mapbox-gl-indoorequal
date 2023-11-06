@@ -33,6 +33,9 @@
     "rollup": "^3.23.0"
   },
   "dependencies": {
+    "@turf/buffer": "^7.0.0-alpha.2",
+    "@turf/simplify": "^7.0.0-alpha.2",
+    "@turf/union": "^7.0.0-alpha.2",
     "array-equal": "^1.0.0",
     "debounce": "^1.2.0"
   },

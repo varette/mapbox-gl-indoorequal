@@ -2439,6 +2439,137 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@turf/bbox@npm:^7.0.0-alpha.2":
+  version: 7.0.0-alpha.2
+  resolution: "@turf/bbox@npm:7.0.0-alpha.2"
+  dependencies:
+    "@turf/helpers": ^7.0.0-alpha.2
+    "@turf/meta": ^7.0.0-alpha.2
+    tslib: ^2.3.0
+  checksum: db1d01117301eb7888df2db34a69d91d9ad5a2b0721c111b44f973fc93d392dbc11c7ca34a16b33c8ff77f97a2f8aac27125a11833f90a24a33b3ff1c565c15d
+  languageName: node
+  linkType: hard
+
+"@turf/buffer@npm:^7.0.0-alpha.2":
+  version: 7.0.0-alpha.2
+  resolution: "@turf/buffer@npm:7.0.0-alpha.2"
+  dependencies:
+    "@turf/bbox": ^7.0.0-alpha.2
+    "@turf/center": ^7.0.0-alpha.2
+    "@turf/helpers": ^7.0.0-alpha.2
+    "@turf/jsts": ^2.7.1
+    "@turf/meta": ^7.0.0-alpha.2
+    "@turf/projection": ^7.0.0-alpha.2
+    d3-geo: 1.7.1
+  checksum: ea1c0a531a864de0035f08478b50373829055441f5af4544a3d86a7079f06b42de1de2951cc20af5dff2633af9791bd3a99e0b49b723f1309b0f2b7afcefc507
+  languageName: node
+  linkType: hard
+
+"@turf/center@npm:^7.0.0-alpha.2":
+  version: 7.0.0-alpha.2
+  resolution: "@turf/center@npm:7.0.0-alpha.2"
+  dependencies:
+    "@turf/bbox": ^7.0.0-alpha.2
+    "@turf/helpers": ^7.0.0-alpha.2
+    tslib: ^2.3.0
+  checksum: 1deff74231cbd4487550d56a490c6b1c2f38331b7771d7aa29f8893c080524740b35e9193f38bae001cacc6af356973a37fa5c68d9e6b3cc89204db77e023025
+  languageName: node
+  linkType: hard
+
+"@turf/clean-coords@npm:^7.0.0-alpha.2":
+  version: 7.0.0-alpha.2
+  resolution: "@turf/clean-coords@npm:7.0.0-alpha.2"
+  dependencies:
+    "@turf/helpers": ^7.0.0-alpha.2
+    "@turf/invariant": ^7.0.0-alpha.2
+    tslib: ^2.3.0
+  checksum: 0ad759a86558f040e5ba084c55a46a33f9dad00d0dd16f4eb9295de38527b7866c94115e47b74a43a2f45d4beeb55daad8ef3f02763175bcd25173eaac8d46f3
+  languageName: node
+  linkType: hard
+
+"@turf/clone@npm:^7.0.0-alpha.2":
+  version: 7.0.0-alpha.2
+  resolution: "@turf/clone@npm:7.0.0-alpha.2"
+  dependencies:
+    "@turf/helpers": ^7.0.0-alpha.2
+    tslib: ^2.3.0
+  checksum: 38b674a22becad1ce7c8aa5b7faaf25901689a4997432987239c2291535def05b8de5206fb0acf9a396c1685a8bf560ce6d3e1587b582174b2c2f356542de841
+  languageName: node
+  linkType: hard
+
+"@turf/helpers@npm:^7.0.0-alpha.2":
+  version: 7.0.0-alpha.2
+  resolution: "@turf/helpers@npm:7.0.0-alpha.2"
+  dependencies:
+    tslib: ^2.3.0
+  checksum: ea1451acdc71bcdd77601291b5da3814575f5aa08d24318f1d91b56db0e3e74713529452d11221cc804aa74dea8ab0f475f95da93ce9daa3bfcbbbce9c9e3c1c
+  languageName: node
+  linkType: hard
+
+"@turf/invariant@npm:^7.0.0-alpha.2":
+  version: 7.0.0-alpha.2
+  resolution: "@turf/invariant@npm:7.0.0-alpha.2"
+  dependencies:
+    "@turf/helpers": ^7.0.0-alpha.2
+    tslib: ^2.3.0
+  checksum: f980156a5356cefe1d9b8c9824d0be51743c3799bbdba1936aa3e861582d2720a791188e4b8b7b56d4c0130d65d545e9146ff8e059f0f420f60b6bc7358bd1e8
+  languageName: node
+  linkType: hard
+
+"@turf/jsts@npm:^2.7.1":
+  version: 2.7.1
+  resolution: "@turf/jsts@npm:2.7.1"
+  dependencies:
+    jsts: 2.7.1
+  checksum: da90527cd9d60ddc5f33a8a3bba63f90a8f577a9cf29fab2099182fa617d77fc7d3b52114a666f270c87153e7f0d8dca8fb27ab79d89a41800c667ca477f69b5
+  languageName: node
+  linkType: hard
+
+"@turf/meta@npm:^7.0.0-alpha.2":
+  version: 7.0.0-alpha.2
+  resolution: "@turf/meta@npm:7.0.0-alpha.2"
+  dependencies:
+    "@turf/helpers": ^7.0.0-alpha.2
+  checksum: 256185aac789606ff50ade3b71b6f41e5df1b645b010229a7ac8af965a46ffac6fde846dce29e0f904bb43f4f0263046c0f06b46621a8a0a74dc989f85d6379f
+  languageName: node
+  linkType: hard
+
+"@turf/projection@npm:^7.0.0-alpha.2":
+  version: 7.0.0-alpha.2
+  resolution: "@turf/projection@npm:7.0.0-alpha.2"
+  dependencies:
+    "@turf/clone": ^7.0.0-alpha.2
+    "@turf/helpers": ^7.0.0-alpha.2
+    "@turf/meta": ^7.0.0-alpha.2
+    tslib: ^2.3.0
+  checksum: a5d2de4e6d1247d58b0dafdd927cb1caf800ebc9c8b4f0bc4ef4bb703bc251b5858f57ede6143cb242d091723c0b4241a5700550a532b58513c2aca0920b51e4
+  languageName: node
+  linkType: hard
+
+"@turf/simplify@npm:^7.0.0-alpha.2":
+  version: 7.0.0-alpha.2
+  resolution: "@turf/simplify@npm:7.0.0-alpha.2"
+  dependencies:
+    "@turf/clean-coords": ^7.0.0-alpha.2
+    "@turf/clone": ^7.0.0-alpha.2
+    "@turf/helpers": ^7.0.0-alpha.2
+    "@turf/meta": ^7.0.0-alpha.2
+  checksum: b8363065085bfe84ccbeca632c3237e96580ab9b7e770939ab3af99862987b3915bc9ae3b78faf146b6a53aa65819d9ecddfb9f3610af8dbd5ddbc10f38ca37a
+  languageName: node
+  linkType: hard
+
+"@turf/union@npm:^7.0.0-alpha.2":
+  version: 7.0.0-alpha.2
+  resolution: "@turf/union@npm:7.0.0-alpha.2"
+  dependencies:
+    "@turf/helpers": ^7.0.0-alpha.2
+    "@turf/meta": ^7.0.0-alpha.2
+    polygon-clipping: ^0.15.3
+    tslib: ^2.3.0
+  checksum: cf911d3bf72c2e56f3f4c9ca0b0872f9eb98fd85b5e828b7c282bc180e3ef89e76a0850c9c1fa0d0df8a751026aef0fcfb41513563191d573f93bde4a85a87b0
+  languageName: node
+  linkType: hard
+
 "@types/babel__core@npm:^7.1.14":
   version: 7.20.0
   resolution: "@types/babel__core@npm:7.20.0"
@@ -3542,6 +3673,22 @@ __metadata:
   dependencies:
     cssom: ~0.3.6
   checksum: 5f05e6fd2e3df0b44695c2f08b9ef38b011862b274e320665176467c0725e44a53e341bc4959a41176e83b66064ab786262e7380fd1cabeae6efee0d255bb4e3
+  languageName: node
+  linkType: hard
+
+"d3-array@npm:1":
+  version: 1.2.4
+  resolution: "d3-array@npm:1.2.4"
+  checksum: d0be1fa7d72dbfac8a3bcffbb669d42bcb9128d8818d84d2b1df0c60bbe4c8e54a798be0457c55a219b399e2c2fabcbd581cbb130eb638b5436b0618d7e56000
+  languageName: node
+  linkType: hard
+
+"d3-geo@npm:1.7.1":
+  version: 1.7.1
+  resolution: "d3-geo@npm:1.7.1"
+  dependencies:
+    d3-array: 1
+  checksum: 5b771ba8d95bed4ea4f221a62193302a9334bdd00b361e8fa45b92b24ba937b0be17c44992bd5e04fc88faca8fcdbf88f89275b8a3aeee8c1ae230773601ad29
   languageName: node
   linkType: hard
 
@@ -5318,6 +5465,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jsts@npm:2.7.1":
+  version: 2.7.1
+  resolution: "jsts@npm:2.7.1"
+  checksum: 653b57a17b3f816ebe48645224ce0ef597ff5215f6e5cc16018216816debdec17ce048ae972f5138b83a6e7999e1338a6ae4b213e6e8cbc9ec308a489ba9819f
+  languageName: node
+  linkType: hard
+
 "kleur@npm:^3.0.3":
   version: 3.0.3
   resolution: "kleur@npm:3.0.3"
@@ -5508,6 +5662,9 @@ __metadata:
     "@rollup/plugin-commonjs": ^25.0.0
     "@rollup/plugin-node-resolve": ^15.1.0
     "@rollup/plugin-terser": ^0.4.3
+    "@turf/buffer": ^7.0.0-alpha.2
+    "@turf/simplify": ^7.0.0-alpha.2
+    "@turf/union": ^7.0.0-alpha.2
     array-equal: ^1.0.0
     babel-jest: ^29.5.0
     debounce: ^1.2.0
@@ -6678,6 +6835,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"polygon-clipping@npm:^0.15.3":
+  version: 0.15.3
+  resolution: "polygon-clipping@npm:0.15.3"
+  dependencies:
+    splaytree: ^3.1.0
+  checksum: ccf88044299f944a775b3a10605254134c6b06536527ed51b757944f7464b957764ab0db1852ed2de5f388d1a90e5eba7f2b0f13fa0ae651bc907f18eac81ddc
+  languageName: node
+  linkType: hard
+
 "postcss@npm:^8.1.10":
   version: 8.2.14
   resolution: "postcss@npm:8.2.14"
@@ -7311,6 +7477,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"splaytree@npm:^3.1.0":
+  version: 3.1.2
+  resolution: "splaytree@npm:3.1.2"
+  checksum: 7b90a52e02036699b0c7228bb86c784aa674618909622da652c80a809694dafa068b73c97309ecb719783b7c1e1092ac6917acf2213defc0fa9027f92b2afa62
+  languageName: node
+  linkType: hard
+
 "sprintf-js@npm:~1.0.2":
   version: 1.0.3
   resolution: "sprintf-js@npm:1.0.3"
@@ -7627,6 +7800,13 @@ __metadata:
   version: 2.1.0
   resolution: "trough@npm:2.1.0"
   checksum: a577bb561c2b401cc0e1d9e188fcfcdf63b09b151ff56a668da12197fe97cac15e3d77d5b51f426ccfd94255744a9118e9e9935afe81a3644fa1be9783c82886
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.3.0":
+  version: 2.6.2
+  resolution: "tslib@npm:2.6.2"
+  checksum: 329ea56123005922f39642318e3d1f0f8265d1e7fcb92c633e0809521da75eeaca28d2cf96d7248229deb40e5c19adf408259f4b9640afd20d13aecc1430f3ad
   languageName: node
   linkType: hard
 
